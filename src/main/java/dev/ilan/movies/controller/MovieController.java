@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,5 +23,11 @@ public class MovieController {
 	public ResponseEntity<List<Movie>> allMovies() {
 		List<Movie> allMovies = movieService.getAllMovies();
 		return new ResponseEntity<>(allMovies, HttpStatus.OK);
+	}
+
+	@GetMapping("/{id}")
+	public ResponseEntity<Movie> getMovieById(@PathVariable String id) {
+		Movie movie = movieService.getByImbdvId(id);
+		return new ResponseEntity<>(movie, HttpStatus.OK);
 	}
 }
