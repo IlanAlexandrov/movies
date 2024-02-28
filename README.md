@@ -1,2 +1,2 @@
-Simple API of readin data from Mongo DB.
+Simple API of reading data from Mongo DB.
 Using Spring boot application.
